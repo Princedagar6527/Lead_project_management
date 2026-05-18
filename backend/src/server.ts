@@ -22,9 +22,22 @@ app.use('/api/auth', authRoutes);
 app.use('/api/leads', leadRoutes);
 
 
-mongoose.connect(process.env.MONGO_URI as string)
-  .then(() => {
+
+const startServer = async () => {
+  try {
+    await mongoose.connect(process.env.MONGO_URI as string);
     console.log('Connected to MongoDB successfully');
-    app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-  })
-  .catch((error) => console.error('MongoDB connection failed:', error));
+    
+    app.listen(PORT, () => {
+      console.log(`Server running on port ${PORT}`);
+    });
+  } catch (error) {
+    console.error('MongoDB connection failed:', error);
+  
+    app.listen(PORT, () => {
+      console.log(`Server forced to start on port ${PORT} despite DB error`);
+    });
+  }
+};
+
+startServer();
