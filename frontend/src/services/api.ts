@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 
-const API_URL = 'https://lead-project-management.onrender.com/api';
+const API_URL =  'https://lead-project-management.onrender.com';
 
 const api = axios.create({
   baseURL: API_URL,
