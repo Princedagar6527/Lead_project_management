@@ -12,7 +12,7 @@ const Signup: React.FC = () => {
     
     try {
       // YAHAN MISTAKE THI: /login ki jagah ab /signup kar diya hai
-      const response = await fetch('https://lead-project-management.onrender.com/api/auth/signup', {
+      const response = await fetch('https://lead-project-management.onrender.com/api/auth/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
