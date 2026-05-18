@@ -4,7 +4,7 @@ import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import Signup from './pages/Signup';
 import AddLead from './pages/AddLead';
-
+// @ts-ignore
 const ProtectedRoute = ({ children }: { children: JSX.Element }) => {
   const token = localStorage.getItem('token');
   if (!token) return <Navigate to="/login" replace />;
